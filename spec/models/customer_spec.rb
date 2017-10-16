@@ -34,5 +34,12 @@ RSpec.describe Customer, type: :model do
 		expect(subject).not_to be_valid
 	end
 
+	it "#name_phone" do
+		subject.first_name = "Jason"
+		subject.last_name = "Browns"
+		subject.phone_number = 9251101010
+		expect(subject.name_phone).to eq("Jason Browns 9251101010")
+	end
+
 
 end
