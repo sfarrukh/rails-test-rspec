@@ -2,11 +2,21 @@ require 'rails_helper'
 
 RSpec.describe Customer, type: :model do
 
-	it "is not valid when first_name || last_name || phone_number || address_id is blank" do
-		subject.first_name = 'm'
-		subject.last_name = 'n'
-		subject.phone_number = 1
-		subject.address_id = 1
-		expect(subject).to be_valid
+	it "is not valid when one of Customer table fields is blank" do
+		subject.first_name = ''  					# first_name is blank
+		subject.last_name = "Mercury"
+		subject.phone_number = 9251000000
+		subject.address_id = 2
+		expect(subject).not_to be_valid
 	end
+
+	it "is not valid when one of Customer table fields is nil" do
+		subject.first_name = 'Adam'
+		subject.last_name = "Mercury"
+		subject.phone_number = 9251000000
+		subject.address_id = nil					# address_id is nil
+		expect(subject).not_to be_valid
+	end
+
+
 end
