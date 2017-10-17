@@ -41,5 +41,10 @@ RSpec.describe Customer, type: :model do
 		expect(subject.name_phone).to eq("Jason Browns 9251101010")
 	end
 
+	it "belongs_to address" do
+		association = Customer.reflect_on_association(:address)
+		expect(association.macro).to eq (:belongs_to)
+	end
+
 
 end
