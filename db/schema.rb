@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171016020841) do
+ActiveRecord::Schema.define(version: 20171016054003) do
+
+  create_table "addresses", primary_key: "address_id", force: :cascade do |t|
+    t.string "address", limit: 100
+    t.string "city", limit: 50
+    t.string "state", limit: 50
+    t.integer "zipcode", limit: 20
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "customers", force: :cascade do |t|
     t.string "first_name", limit: 50
