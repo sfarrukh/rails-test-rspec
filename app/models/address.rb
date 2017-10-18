@@ -1,4 +1,5 @@
 class Address < ApplicationRecord
+
 	has_one :customer
 
 	validates :address, :city, :state, :zipcode, presence: true
